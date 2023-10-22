@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="clock-styles.css" />
+    <title>Timer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="timer-container">
+      <div class="input-container">
+        <input type="number" id="timer-input" placeholder="time" min="1" />
+
+        <button onclick="startTimer()" class="timer_btn">
+          <i class="fa fa-clock-o fa-2xl"></i>
+        </button>
+      </div>
+      <div class="timer" id="timer">00:00 s</div>
+      <button class="back-button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script src="clock-script.js"></script>
+
+    <script>
+      function goBack() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>

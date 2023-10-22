@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Home</title>    
+    <link rel="icon" type="image/x-icon" href="box.png">
+
+  </head>
+
+  <body onload="showTimeLeftOnIndex()">
+    
+    <div class="container">
+      <div class="box physics">
+
+        <h2 contenteditable="true">Physics</h2>
+        
+        <div class="note-container">
+          <textarea
+            class="note"
+            placeholder="Write your notes here..."
+          ></textarea>
+        </div>
+      </div>
+      <div class="box chemistry">
+
+        <h2 contenteditable="true">Chemistry</h2>
+        <div class="note-container">
+          <textarea
+            class="note"
+            placeholder="Write your notes here..."
+          ></textarea>
+        </div>
+      </div>
+      <div class="box ec">
+        <button class="delete-button">-</button>
+
+        <h2 contenteditable="true">E.C.</h2>
+        <div class="note-container">
+          <textarea
+            class="note"
+            placeholder="Write your notes here..."
+          ></textarea>
+        </div>
+      </div>
+      <div class="box accounting">
+        <button class="delete-button">-</button>
+
+        <h2 contenteditable="true">Accounting</h2>
+        <div class="note-container">
+          <textarea
+            class="note"
+            placeholder="Write your notes here..."
+          ></textarea>
+        </div>
+      </div>
+      
+    
+    
+    </div>
+
+      <button id="add-box-button">+</button>
+  
+
+  </div>
+  <div class="page-switch">
+    <a href="clock.html" id="timer-link">Timer</a>
+  </div>
+
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

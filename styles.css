@@ -1,0 +1,189 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background-color: #e1e2e3; /* Subtle grey background */
+  font-family: monospace;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 20px;
+  font-family: monospace;
+}
+
+.box {
+  flex: 1 1 calc(45% - 40px);
+  min-height: 300px; /* Set a minimum height for the boxes */
+  margin: 10px;
+  padding: 20px;
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #fff;
+  color: #333;
+  transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+.box:hover,
+.box:focus-within {
+  background-color: #f0f9ff; /* Highlighted shade of white */
+}
+
+.box h2 {
+  margin-top: 0;
+  cursor: text;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.note-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.note {
+  flex: 1;
+  width: 100%;
+  min-height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  resize: vertical;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+.note:focus {
+  background-color: #fff; /* Change background color when the textarea is focused */
+}
+
+/* ... (previous CSS styles) */
+
+/* ... (previous CSS styles) ... */
+
+.clock-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-image: url("clock-icon.png"); /* Replace 'clock-icon.png' with your clock icon image */
+  background-size: cover;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.square-icon {
+  background-image: url("square-icon.png"); /* Replace 'square-icon.png' with your square icon image */
+}
+
+/* ... (previous CSS styles) ... */
+
+.page-switch {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.page-switch:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.page-switch a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* ... (previous CSS styles) ... */
+
+.page-switch {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.page-switch:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.page-switch a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* Styles for the new box button */
+#add-box-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 36px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: auto;
+  margin-top: 3;
+}
+
+#add-box-button:hover {
+  background-color: #45a049;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for the delete button */
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #969696; /* Red background color for the delete button */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #ff3333; /* Darker red background color on hover */
+}
+
+/* Additional styles for the box */
+.box {
+  position: relative; /* Make the position of the box relative for the absolute positioning of the delete button */
+  /* Rest of your box styles */
+}
+.logo {
+  width: 100px; /* Adjust the width as needed */
+  height: 100px;
+}

@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #282c36;
+  color: #ffffff;
+  font-family: monospace;
+}
+
+.timer-container {
+  text-align: center;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+#timer-input {
+  font-size: 18px;
+  padding: 10px;
+  width: 60px;
+  text-align: center;
+  background-color: #1e222a;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#timer-input::placeholder {
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+.timer {
+  font-size: 72px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 15px 30px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.timer_btn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.timer_btn:hover {
+  background-color: RoyalBlue;
+}
+
+body {
+  /* ... (previous styles) ... */
+  position: relative;
+}
+
+.back-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #999999;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #666666;
+}

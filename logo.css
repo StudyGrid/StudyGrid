@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff; /* Set your desired background color */
+}
+
+.logo-container {
+  opacity: 0;
+  animation: fadeIn 1s forwards; /* Animation lasts for 1 second */
+}
+
+.content {
+  display: none; /* Hide the content initially */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
