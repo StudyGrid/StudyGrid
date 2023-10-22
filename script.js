@@ -1,6 +1,117 @@
 window.onload = function () {
+  // Retrieve and set saved values for existing boxes and their content
+  for (let i = 1; i <= 4; i++) {
+    const titleElement = document.getElementById(`Title${i}`);
+    const noteElement = document.querySelector(
+      `#Title${i} + .note-container textarea`
+    );
+
+    const savedTitle = localStorage.getItem(`Title${i}`);
+    const savedNote = localStorage.getItem(`Note${i}`);
+    const savedContent = localStorage.getItem(`Content${i}`);
+
+    if (savedTitle) {
+      titleElement.innerText = savedTitle;
+    }
+    if (savedNote) {
+      noteElement.value = savedNote;
+    }
+    if (savedContent) {
+      const boxContent = document.querySelector(
+        `#Title${i} + .note-container .note`
+      );
+      boxContent.value = savedContent;
+    }
+  }
+
+  // Retrieve the number of boxes from localStorage
+  const numBoxes = parseInt(localStorage.getItem("numBoxes")) || 4;
+
+  // Create new boxes based on the saved number
+  for (let i = 5; i <= numBoxes; i++) {
+    createNewBox();
+  }
+
   showTimeLeftOnIndex();
 };
+
+// Add event listeners for input fields to save their values
+const titleElements = document.querySelectorAll('[contenteditable="true"]');
+const noteElements = document.querySelectorAll(".note");
+
+titleElements.forEach((titleElement) => {
+  titleElement.addEventListener("input", function () {
+    saveValue(this);
+  });
+});
+
+noteElements.forEach((noteElement) => {
+  noteElement.addEventListener("input", function () {
+    saveValue(this);
+  });
+});
+
+// Function to handle saving values to localStorage
+function saveValue(element) {
+  const id = element.id;
+  const value = element.innerText || element.value;
+  localStorage.setItem(id, value);
+}
+
+// Add event listeners for text inside the boxes to save their content
+const boxContents = document.querySelectorAll(".note");
+boxContents.forEach((contentElement) => {
+  contentElement.addEventListener("input", function () {
+    const boxId = this.parentElement.previousElementSibling.id;
+    const contentValue = this.value;
+    localStorage.setItem(
+      `Content${boxId.charAt(boxId.length - 1)}`,
+      contentValue
+    );
+  });
+});
+
+// Function to create a new box
+function createNewBox() {
+  const container = document.querySelector(".container");
+
+  // Create a new box div
+  const newBoxId = document.querySelectorAll(".box").length + 1;
+  const newBox = document.createElement("div");
+  newBox.className = "box";
+  newBox.innerHTML = `
+    <button class="delete-button">-</button>
+    <h2 contenteditable="true" id="Title${newBoxId}">New Box</h2>
+    <div class="note-container">
+      <textarea class="note" placeholder="Write your notes here..."></textarea>
+    </div>
+  `;
+
+  // Append the new box to the container
+  container.appendChild(newBox);
+
+  // Save the new number of boxes to localStorage
+  localStorage.setItem("numBoxes", newBoxId);
+  // Save the state of the new box to localStorage
+  saveValue(newBox.querySelector("h2"));
+}
+
+// Add event listener to the "Add Box" button
+const addBoxButton = document.getElementById("add-box-button");
+addBoxButton.addEventListener("click", function () {
+  createNewBox();
+  saveValue(addBoxButton); // Save the state of the "Add Box" button
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Load the state of the "Add Box" button
+  const addButtonState = localStorage.getItem("add-box-button");
+  if (addButtonState === "hidden") {
+    addBoxButton.style.display = "none";
+  }
+});
+
+// ... (the rest of your code remains unchanged)
 
 window.addEventListener("DOMContentLoaded", function () {
   const timerLink = document.getElementById("timer-link");
@@ -31,69 +142,3 @@ window.addEventListener("DOMContentLoaded", function () {
   // Update timer text every second
   setInterval(updateTimerText, 1000);
 });
-
-// Function to create a new box
-function createNewBox() {
-  const container = document.querySelector(".container");
-
-  // Create a new box div
-  const newBox = document.createElement("div");
-  newBox.className = "box";
-  newBox.innerHTML = `
-    <button class="delete-button">-</button>
-    <h2 contenteditable="true">New Box</h2>
-    <div class="note-container">
-      <textarea class="note" placeholder="Write your notes here..."></textarea>
-    </div>
-  `;
-
-  // Append the new box to the container
-  container.appendChild(newBox);
-}
-
-// Add event listener to the container to handle delete button clicks
-const container = document.querySelector(".container");
-container.addEventListener("click", function (event) {
-  const target = event.target;
-
-  // Check if the clicked element is a delete button
-  if (target.classList.contains("delete-button")) {
-    const box = target.parentElement;
-    box.remove(); // Remove the clicked box from the DOM
-  }
-});
-
-// Add event listener to the "Add Box" button
-const addBoxButton = document.getElementById("add-box-button");
-addBoxButton.addEventListener("click", createNewBox);
-document.addEventListener("DOMContentLoaded", function () {
-  fadeInContent();
-});
-
-function fadeInContent() {
-  let opacity = 0;
-  const targetOpacity = 1;
-  const duration = 1000; // Animation duration in milliseconds
-
-  const animationInterval = setInterval(function () {
-    document.querySelector(".content").style.opacity = opacity;
-    opacity += targetOpacity / (duration / 100); // Calculate opacity increment
-
-    if (opacity >= targetOpacity) {
-      clearInterval(animationInterval); // Stop the animation when target opacity is reached
-    }
-  }, 100); // Update opacity every 100 milliseconds
-}
-
-function checkDevice() {
-  if (isMobileDevice()) {
-    // Show the mobile warning message
-    document.getElementById("mobile-warning").classList.remove("hidden");
-  }
-}
-
-function isMobileDevice() {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent
-  );
-}
