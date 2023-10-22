@@ -187,3 +187,7 @@ body {
   width: 100px; /* Adjust the width as needed */
   height: 100px;
 }
+/* Add this CSS to hide the mobile warning initially */
+.hidden {
+  display: none;
+}
