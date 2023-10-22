@@ -9,7 +9,7 @@
 
   </head>
 
-  <body onload="showTimeLeftOnIndex()">
+  <body onload="checkDevice()", onload="showTimeLeftOnIndex()">
     
     <div class="container">
       <div class="box physics">
@@ -68,7 +68,9 @@
     <a href="clock.html" id="timer-link">Timer</a>
   </div>
 
-
+  <div id="mobile-warning" class="hidden">
+    <p>Sorry! This website is intended to be used on a laptop or desktop computer.</p>
+  </div>
     <script src="script.js"></script>
 
   </body>
