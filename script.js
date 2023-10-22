@@ -84,3 +84,16 @@ function fadeInContent() {
     }
   }, 100); // Update opacity every 100 milliseconds
 }
+
+function checkDevice() {
+  if (isMobileDevice()) {
+    // Show the mobile warning message
+    document.getElementById("mobile-warning").classList.remove("hidden");
+  }
+}
+
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
+}
