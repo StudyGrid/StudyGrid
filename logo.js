@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("hasVisitedLogoPage", true);
     setTimeout(function () {
       window.location.href = "index.html"; // Redirect to the main content page
-    }, 1000); // Wait for 1 second (1000 milliseconds) before redirecting
+    }, 3000); // Wait for 1 second (1000 milliseconds) before redirecting
   } else {
     // If the user has visited the logo page before, redirect immediately
     window.location.href = "home.html"; // Redirect to the main content page
